@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego del Hambre</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+        }
+        .step {
+            display: none;
+        }
+        .container {
+            text-align: center;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .button-blue {
+            background-color: blue;
+        }
+        .button-red {
+            background-color: red;
+        }
+        .text-box {
+            background-color: #e0e0e0;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 10px;
+            font-family: 'Times New Roman', serif;
+            font-size: 15px;
+            max-width: 80%;
+        }
+        .heart {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Paso 1 -->
+    <div id="paso-1" class="step container">
+        <h1>Bienvenido a los juegos del hambre, ¿Preparado anciano?</h1>
+        <button id="boton-si" class="button button-blue">Sí</button>
+        <button id="boton-si-rojo" class="button button-red">Sí, pero en rojo</button>
+    </div>
+
+    <!-- Paso 2 -->
+    <div id="paso-2" class="step container">
+        <div class="text-box">
+            Esto es una carta diferente jajaja, solo quiero decirte que te quiero mucho, has sido muy importante para mí y eres una persona increíble, no cambies nunca xfavor
+        </div>
+        <div class="text-box">
+            Quiero decirte algo más importante, ¿Quieres saberlo?
+        </div>
+        <button id="boton-si-mas-importante" class="button button-blue">Sí, y no hay otra opción</button>
+    </div>
+
+    <!-- Paso 3 -->
+    <div id="paso-3" class="step container">
+        <div class="text-box">
+            ¿Estás seguro que quieres saberlo? ¿Qué tal te diga algo malo?
+        </div>
+        <button id="boton-no" class="button button-red">NO</button>
+        <button id="boton-obvio-si" class="button button-blue">Obvio sí quiero saber</button>
+    </div>
+
+    <!-- Paso 4 -->
+    <div id="paso-4" class="step container">
+        <div class="text-box">
+            Te amo :3
+        </div>
+        <div class="heart"></div>
+    </div>
+
+    <script>
+        document.getElementById('boton-si').addEventListener('click', function() {
+            document.getElementById('paso-1').style.display = 'none';
+            document.getElementById('paso-2').style.display = 'block';
+        });
+
+        document.getElementById('boton-si-rojo').addEventListener('click', function() {
+            document.getElementById('paso-1').style.display = 'none';
+            document.getElementById('paso-2').style.display = 'block';
+        });
+
+        document.getElementById('boton-si-mas-importante').addEventListener('click', function() {
+            document.getElementById('paso-2').style.display = 'none';
+            document.getElementById('paso-3').style.display = 'block';
+        });
+
+        document.getElementById('boton-no').addEventListener('click', function() {
+            alert('Hombre tenía que ser');
+        });
+
+        document.getElementById('boton-obvio-si').addEventListener('click', function() {
+            document.getElementById('paso-3').style.display = 'none';
+            document.getElementById('paso-4').style.display = 'block';
+        });
+
+        // Mostrar el primer paso
+        document.getElementById('paso-1').style.display = 'block';
+    </script>
+</body>
+</html>
